@@ -11,7 +11,7 @@ April 2015 drop
 * Clone the project
 * Enable Security Administration in the project properties
 * We now package all dependencies in the lsWire.js file itself.
-* Press F5 - enjoy the ride!
+* **Do a full Rebuild of the solution, not just an F5 run (thanks Michael Washington)**
 
 ### Requirements? ###
 
@@ -24,4 +24,3 @@ April 2015 drop
 * http://lightswitch.codewriting.tips/
 * http://blog.ofAnITGuy.com/
 * We will be working on updating so please have patience
-
