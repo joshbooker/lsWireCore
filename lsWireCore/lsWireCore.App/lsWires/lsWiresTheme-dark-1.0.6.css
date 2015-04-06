@@ -1,0 +1,343 @@
+/* ======================================================================================
+	Consolidate CSS file for the lsWireCore.js series
+
+	Last updated: 12/19/2014 @ 5p
+   ====================================================================================== */
+
+
+.lswire-fixed-element {
+	background-color: rgba(51, 51, 51, 1);
+}
+
+.lswire-fixed-element th {
+
+}
+
+/* ======================================================================================
+	lsWire.list.itemTap
+
+	This is a direct copy of ui-btn-active from light-theme-2.5.0.css
+	Modify as needed for your own theme 
+   ====================================================================================== */
+.lswire-selected-item {
+    border: 1px solid #2A8DD4;
+    background: #cde6f7 /*{global-active-background-color}*/;
+    color: #222;
+    cursor: pointer;
+    text-shadow: 0px 0px 0px #cde6f7;
+    text-decoration: none;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( #cde6f7 /*{global-active-background-start}*/), to( #cde6f7 /*{global-active-background-end}*/));
+    background-image: -webkit-linear-gradient( #cde6f7 /*{global-active-background-start}*/, #cde6f7 /*{global-active-background-end}*/);
+    background-image: -moz-linear-gradient( #cde6f7 /*{global-active-background-start}*/, #cde6f7 /*{global-active-background-end}*/);
+    background-image: -ms-linear-gradient( #cde6f7 /*{global-active-background-start}*/, #cde6f7 /*{global-active-background-end}*/);
+    background-image: -o-linear-gradient( #cde6f7 /*{global-active-background-start}*/, #cde6f7 /*{global-active-background-end}*/);
+    background-image: linear-gradient( #cde6f7 /*{global-active-background-start}*/, #cde6f7 /*{global-active-background-end}*/);
+    font-family: "Segoe UI", "Segoe WP", "Roboto","Frutiger","Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+/* ======================================================================================
+	lsWire.list.itemTap
+
+	For table row, remove the border when selecting a row 
+   ====================================================================================== */
+.msls-tr.lswire-selected-item {
+	border: none;
+}
+
+
+/* ======================================================================================
+	lsWire.list.itemTap
+
+	Remove the funky border when item has focus
+   ====================================================================================== */
+.lswire-selected-item .ui-focus, .ui-btn:focus {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+	box-shadow:none;
+}
+
+
+/* ======================================================================================
+	lsWire.list.itemTap
+
+	Remove the dotted border when a row has focus, we use colors for that
+	Comment it out if you like the border
+   ====================================================================================== */
+tr.msls-table-row:focus {
+    outline: none;
+}
+
+
+
+/* ======================================================================================
+   ======================================================================================
+   ======================================================================================
+	CSS for lsWire.checkbox
+
+	Inline comments should be pretty explanatory
+	This is for the Light Theme
+   ====================================================================================== 
+   ====================================================================================== 
+   ====================================================================================== */
+
+
+/* The lsWire checkbox does not use the jquery mobile styling */
+/* ==========================================================*/
+.lswire-checkbox {
+	clear: both;
+}
+
+	/* To make our checkbox symetrical when there is no accompaning text*/
+	.lswire-checkbox.noLabelCheckbox {
+		width: 20px !important;
+		padding-top: 23px;
+	}
+
+	/* Remove the jqeury mobile graphic checkbox */
+	.lswire-checkbox .ui-icon {
+		display: none;
+	}
+
+
+	/* Adjust the location of our actual checkbox control */
+	.lswire-checkbox .ui-checkbox input {
+		top: 7px;
+		z-index: 99;
+		height: 20px;
+		width: 20px;
+		left: 0;
+		margin: 0 !important;
+		cursor: pointer;
+		padding-left: 0;
+	}
+
+	/* Margins for our text/label */
+	.lswire-checkbox .ui-checkbox .ui-btn-text {
+		left: 0 !important;
+	}
+
+
+	/* This is for the text to accompany the checkbox     */
+	/* we are moving margins to match other screen fields */
+	/* this brings the text closer to the checkbox        */
+	.lswire-checkbox .ui-btn-icon-left .ui-btn-inner {
+		padding-left: 30px;
+	}
+
+	/* Move the label/text over to the left by x number of pixels */
+	.lswire-checkbox label {
+		/*padding-left: 5px;*/
+	}
+
+	.lswire-checkbox .noLabelCheckbox label {
+		width: 0;
+		padding-left: 0;
+	}
+
+
+/* Make a no label checkbox with jquery mobile look symetrical */
+/* ==========================================================*/
+.noLabelCheckbox {
+	width: 45px !important;
+}
+
+
+	/* The following allows a jquery mobile checkbox with no label */
+	/* ==========================================================*/
+	.noLabelCheckbox .ui-btn-inner {
+		padding-left: 0 !important;
+		min-width: 0;
+	}
+
+
+/* This removes the border around a jquery/LS checkbox */
+/* ==========================================================*/
+.ui-checkbox .ui-btn {
+	box-shadow: none;
+	border: none !important;
+	margin: inherit;
+}
+
+
+/* ==========================================================*/
+/* ==========================================================*/
+/* For webkit (safari and chrome) browsers */
+/* ==========================================================*/
+/* ==========================================================*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+	.lswire-checkbox .ui-checkbox input {
+		top: 9px;
+		z-index: 99;
+		height: 20px;
+		width: 20px;
+		left: 0;
+		margin: 0 !important;
+		cursor: pointer;
+	}
+
+	.ui-checkbox .ui-btn-icon-left .ui-btn-inner {
+		padding-left: 30px;
+	}
+
+	.ui-checkbox label {
+		padding-left: 10px;
+	}
+
+	.noLabelCheckbox .ui-checkbox .ui-btn {
+		width: 10px !important;
+	}
+
+}
+
+/* Set the font size to whatever you are using as normalized screen font size */
+.lswire-checkbox .ui-fullsize .ui-btn-inner, .ui-fullsize .ui-btn-inner {
+	font-size: 14px;
+}
+
+.lswire-render-html {
+	border: none;
+    box-shadow: none !important;
+    background: none;
+    text-shadow: none;
+}
+
+.lswire-sort-icon-text {
+    color: inherit;
+}
+
+.lswire-sort-element {
+    float: left;
+}
+
+.lswire-filter-icon-element {
+    float: right; 
+    padding: 0;
+}
+
+.lswire-filter-element {
+    float: right; 
+    padding-right: 10px;
+}
+
+.lswire-filter-icon-text {
+    color: inherit;
+}
+
+.lswire-text-allowwrap {
+	white-space: normal !important;
+}
+
+.lswire-title-container {
+	line-height: 8px !important;
+	margin-top: 0;
+	padding-top: 0;
+	font-size: 0 !important;
+}
+
+.lswire-screen-subtitle {
+	font-size: medium;
+	line-height: 14px;
+}
+
+.lswire-screen-title {
+	font-size: 36px !important;
+	line-height: 1.4 !important;
+}
+
+.lswire-two-titles-button {
+    padding-top: 30px !important;
+}
+
+/* ===============================================================*/
+/* Adjustments made to have Kendo UI have the look of LightSwitch */
+/* ===============================================================*/
+
+/* Remove the rounded corners of the control */
+.k-block, .k-button, .k-textbox, .k-drag-clue, .k-touch-scrollbar, 
+.k-window, .k-window-titleless .k-window-content, .k-window-action, 
+.k-inline-block, .k-grid .k-filter-options, 
+.k-grouping-header .k-group-indicator, .k-autocomplete, 
+.k-multiselect, .k-combobox, .k-dropdown, .k-dropdown-wrap, 
+.k-datepicker, .k-timepicker, .k-colorpicker, .k-datetimepicker, 
+.k-notification, .k-numerictextbox, .k-picker-wrap, .k-numeric-wrap, 
+.k-colorpicker, .k-list-container, .k-calendar-container, .k-calendar td, 
+.k-calendar .k-link, .k-treeview .k-in, .k-editor-inline, 
+.k-tooltip, .k-tile, .k-slider-track, .k-slider-selection, .k-upload {
+	border-radius: 0 !important;
+}
+
+/* Margin is off from other controls */
+.k-editor-inline {
+	border-radius: 0 !important;
+	border: 1px solid #ababab !important;
+	margin-top: 4px;
+}
+
+.k-group-start.k-tool {
+	border-radius: 0 !important;
+}
+
+.k-group-end.k-tool {
+	border-radius: 0 !important;
+}
+
+
+
+/* ckEditor to be more compatible with the light theme for LightSwitch */
+
+
+.cke_bottom {
+    /*background: #f1f1f1 !important;*/
+    background: #f5f5f5 !important;
+}
+
+.cke_chrome {
+    border: 1px solid #ababab !important;
+}
+
+.cke_path_item {
+	color: inherit !important;
+}
+
+.lswire-dirty-editor-button {
+    background-color: lightgreen !important;
+}
+
+.lswire-rotate-45 {
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -moz-transform: rotate(45deg); /* Firefox */
+    -webkit-transform: rotate(45deg); /* Safari and Chrome */
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg); /* Opera */
+}
+
+.lswire-rotate-90 {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -moz-transform: rotate(90deg); /* Firefox */
+    -webkit-transform: rotate(90deg); /* Safari and Chrome */
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); /* Opera */
+}
+
+.lswire-rotate-180 {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -moz-transform: rotate(180deg); /* Firefox */
+    -webkit-transform: rotate(180deg); /* Safari and Chrome */
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg); /* Opera */
+}
+
+.lswire-rotate-270 {
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -moz-transform: rotate(270deg); /* Firefox */
+    -webkit-transform: rotate(270deg); /* Safari and Chrome */
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg); /* Opera */
+}
+
+.msls-screen-tab-active .ui-btn-text {
+    color: yellow;
+}
+

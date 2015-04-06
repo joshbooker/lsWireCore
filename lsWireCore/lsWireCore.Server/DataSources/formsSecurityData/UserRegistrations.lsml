@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="UserRegistration">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="UserName"
+        PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="256" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="FullName"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="256" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Password"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="128" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="RoleAssignments"
+        Association="RoleAssignment_User"
+        FromEnd="User"
+        ToEnd="RoleAssignments" />
+      <NavigationProperty
+        Name="DerivingRoleAssignments"
+        Association="RoleAssignment_SourceAccount"
+        FromEnd="SourceAccount"
+        ToEnd="DerivingRoleAssignments" />
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="RoleAssignment_User">
+    <AssociationEnd
+      Name="User"
+      Multiplicity="One"
+      EntityType="UserRegistration">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Cascade" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="RoleAssignments"
+      Multiplicity="Many"
+      EntityType="RoleAssignment" />
+  </Association>
+  <Association
+    Name="RoleAssignment_SourceAccount">
+    <AssociationEnd
+      Name="SourceAccount"
+      Multiplicity="One"
+      EntityType="UserRegistration">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Cascade" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="DerivingRoleAssignments"
+      Multiplicity="Many"
+      EntityType="RoleAssignment" />
+  </Association>
+  <EntityContainer
+    Name="formsSecurityData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="UserRegistrations"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="UserRegistration" />
+    <AssociationSet
+      Name="RoleAssignment_User"
+      Association="RoleAssignment_User">
+      <AssociationSetEnd
+        Name="User"
+        EntitySet="UserRegistrations" />
+      <AssociationSetEnd
+        Name="RoleAssignments"
+        EntitySet="RoleAssignments" />
+    </AssociationSet>
+    <AssociationSet
+      Name="RoleAssignment_SourceAccount"
+      Association="RoleAssignment_SourceAccount">
+      <AssociationSetEnd
+        Name="SourceAccount"
+        EntitySet="UserRegistrations" />
+      <AssociationSetEnd
+        Name="DerivingRoleAssignments"
+        EntitySet="RoleAssignments" />
+    </AssociationSet>
+    <QueryOperation
+      Name="UserRegistrations_Single"
+      ReturnType="UserRegistration">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="UserName" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="UserName" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="UserRegistrations" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="UserName"
+        ParameterType="Microsoft.LightSwitch:String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'UserName' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="UserRegistrations_SingleOrDefault"
+      ReturnType="UserRegistration">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="UserName" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="UserName" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="UserRegistrations" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="UserName"
+        ParameterType="Microsoft.LightSwitch:String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'UserName' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="formsSecurityDataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="UserRegistrations">
+      <EntitySetMapping.Attributes>
+        <CsdlEntitySet
+          EntityTypeName="UserRegistration"
+          EntityTypeNamespace="Microsoft.LightSwitch.Security"
+          Name="UserRegistrations"
+          EntityType="UserRegistration" />
+        <CsdlProperty
+          Name="UserName"
+          Property="UserRegistration/Properties[UserName]" />
+        <CsdlProperty
+          Name="FullName"
+          Property="UserRegistration/Properties[FullName]" />
+        <CsdlProperty
+          Name="Password"
+          Property="UserRegistration/Properties[Password]" />
+        <CsdlProperty
+          Name="RoleAssignments"
+          Property="UserRegistration/Properties[RoleAssignments]" />
+        <CsdlProperty
+          Name="DerivingRoleAssignments"
+          Property="UserRegistration/Properties[DerivingRoleAssignments]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="RoleAssignment_User">
+      <AssociationSetMapping.Attributes>
+        <CsdlAssociation
+          Name="RoleAssignment_User"
+          Association="RoleAssignment_User" />
+        <CsdlAssociationSetEnd
+          End="formsSecurityData/Members[RoleAssignment_User]/Members[User]">
+          <CsdlAssociationSetEnd.Attributes>
+            <CsdlPropertyRef
+              Name="UserName" />
+          </CsdlAssociationSetEnd.Attributes>
+        </CsdlAssociationSetEnd>
+        <CsdlAssociationSetEnd
+          End="formsSecurityData/Members[RoleAssignment_User]/Members[RoleAssignments]">
+          <CsdlAssociationSetEnd.Attributes>
+            <CsdlPropertyRef
+              Name="UserName" />
+          </CsdlAssociationSetEnd.Attributes>
+        </CsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="RoleAssignment_SourceAccount">
+      <AssociationSetMapping.Attributes>
+        <CsdlAssociation
+          Name="RoleAssignment_SourceAccount"
+          Association="RoleAssignment_SourceAccount" />
+        <CsdlAssociationSetEnd
+          End="formsSecurityData/Members[RoleAssignment_SourceAccount]/Members[SourceAccount]">
+          <CsdlAssociationSetEnd.Attributes>
+            <CsdlPropertyRef
+              Name="UserName" />
+          </CsdlAssociationSetEnd.Attributes>
+        </CsdlAssociationSetEnd>
+        <CsdlAssociationSetEnd
+          End="formsSecurityData/Members[RoleAssignment_SourceAccount]/Members[DerivingRoleAssignments]">
+          <CsdlAssociationSetEnd.Attributes>
+            <CsdlPropertyRef
+              Name="SourceAccountName" />
+          </CsdlAssociationSetEnd.Attributes>
+        </CsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ServiceApplication>

@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="Permission">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="322" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Name"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="64" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="RolePermissions"
+        Association="RolePermission_Permission"
+        FromEnd="Permission"
+        ToEnd="RolePermissions" />
+      <VirtualNavigationProperty
+        Name="Tiles"
+        FromEnd="Permission"
+        ToEnd="Tile"
+        VirtualAssociation="Tile_Permission" />
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="RolePermission_Permission">
+    <AssociationEnd
+      Name="Permission"
+      Multiplicity="One"
+      EntityType="Permission">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Cascade" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="RolePermissions"
+      Multiplicity="Many"
+      EntityType="RolePermission" />
+  </Association>
+  <EntityContainer
+    Name="formsSecurityData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="Permissions"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="Permission" />
+    <AssociationSet
+      Name="RolePermission_Permission"
+      Association="RolePermission_Permission">
+      <AssociationSetEnd
+        Name="Permission"
+        EntitySet="Permissions" />
+      <AssociationSetEnd
+        Name="RolePermissions"
+        EntitySet="RolePermissions1" />
+    </AssociationSet>
+    <QueryOperation
+      Name="Permissions_Single"
+      ReturnType="Permission">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Permissions" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType="Microsoft.LightSwitch:String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="Permissions_SingleOrDefault"
+      ReturnType="Permission">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Permissions" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType="Microsoft.LightSwitch:String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="formsSecurityDataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="Permissions">
+      <EntitySetMapping.Attributes>
+        <CsdlEntitySet
+          EntityTypeName="Permission"
+          EntityTypeNamespace="Microsoft.LightSwitch.Security"
+          Name="Permissions"
+          EntityType="Permission" />
+        <CsdlProperty
+          Name="Id"
+          Property="Permission/Properties[Id]" />
+        <CsdlProperty
+          Name="Name"
+          Property="Permission/Properties[Name]" />
+        <CsdlProperty
+          Name="RolePermissions"
+          Property="Permission/Properties[RolePermissions]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="RolePermission_Permission">
+      <AssociationSetMapping.Attributes>
+        <CsdlAssociation
+          Name="RolePermission_Permission"
+          Association="RolePermission_Permission" />
+        <CsdlAssociationSetEnd
+          End="formsSecurityData/Members[RolePermission_Permission]/Members[Permission]">
+          <CsdlAssociationSetEnd.Attributes>
+            <CsdlPropertyRef
+              Name="Id" />
+          </CsdlAssociationSetEnd.Attributes>
+        </CsdlAssociationSetEnd>
+        <CsdlAssociationSetEnd
+          End="formsSecurityData/Members[RolePermission_Permission]/Members[RolePermissions]">
+          <CsdlAssociationSetEnd.Attributes>
+            <CsdlPropertyRef
+              Name="PermissionId" />
+          </CsdlAssociationSetEnd.Attributes>
+        </CsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <VirtualAssociation
+    Name="Tile_Permission">
+    <VirtualAssociationEnd
+      Name="Tile"
+      Multiplicity="Many"
+      EntityType="Tile" />
+    <VirtualAssociationEnd
+      Name="Permission"
+      EntityType="Permission" />
+  </VirtualAssociation>
+  <VirtualAssociationSet
+    Name="Tile_Permission_Set"
+    VirtualAssociation="Tile_Permission">
+    <VirtualAssociationSetEnd
+      Name="Tile"
+      EntityContainer="ApplicationData"
+      EntitySet="Tiles">
+      <VirtualAssociationSetEndProperty
+        EntityProperty="Permission_Id" />
+    </VirtualAssociationSetEnd>
+    <VirtualAssociationSetEnd
+      Name="Permission"
+      EntityContainer="formsSecurityData"
+      EntitySet="Permissions">
+      <VirtualAssociationSetEndProperty
+        EntityProperty="Id" />
+    </VirtualAssociationSetEnd>
+  </VirtualAssociationSet>
+</ServiceApplication>
