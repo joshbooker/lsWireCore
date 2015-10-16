@@ -13,8 +13,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LightSwitchApplication</RootNamespace>
     <AssemblyName>Application.Server</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <LightSwitchVersion>v4.5</LightSwitchVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <LightSwitchVersion>v5.0</LightSwitchVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <SupportedCultures>en-US</SupportedCultures>
     <FileAlignment>512</FileAlignment>
@@ -131,13 +131,13 @@
       <Private>True</Private>
       <ProjectCritical>True</ProjectCritical>
     </Reference>
-    <Reference Include="Microsoft.LightSwitch.ExportProvider, Version=10.0.12.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+    <Reference Include="Microsoft.LightSwitch.ExportProvider, Version=10.0.14.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>$(LightSwitchSDKPath)\Client\Microsoft.LightSwitch.ExportProvider.dll</HintPath>
       <SpecificVersion>True</SpecificVersion>
       <Private>True</Private>
       <ProjectCritical>True</ProjectCritical>
     </Reference>
-    <Reference Include="Microsoft.LightSwitch.CodeMarker, Version=12.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+    <Reference Include="Microsoft.LightSwitch.CodeMarker, Version=14.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>$(LightSwitchSDKPath)\Client\Microsoft.LightSwitch.CodeMarker.dll</HintPath>
       <SpecificVersion>True</SpecificVersion>
       <Private>True</Private>
@@ -277,7 +277,7 @@
   </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.Build.Tasks.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.Build.Tasks.targets" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">

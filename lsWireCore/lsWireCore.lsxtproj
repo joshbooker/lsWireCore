@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project MSBuildVersion="4.0" ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,9 +9,9 @@
     <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
     <RootNamespace>lsWireCore</RootNamespace>
     <AssemblyName>Microsoft.LightSwitch.Server.Host</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <LightSwitchVersion>v4.5</LightSwitchVersion>
-    <LightSwitchProjectVersion>v4.5</LightSwitchProjectVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <LightSwitchVersion>v5.0</LightSwitchVersion>
+    <LightSwitchProjectVersion>v4.7</LightSwitchProjectVersion>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
     <Name>lsWireCore</Name>
     <LightSwitchProjectTypeV45>LightSwitch</LightSwitchProjectTypeV45>
@@ -25,8 +25,9 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <ServiceDefinitionFile>ServiceDefinition.csdef</ServiceDefinitionFile>
     <ServiceConfigurationFile>ServiceConfiguration.cscfg</ServiceConfigurationFile>
-    <SqlExpressInstanceName>(LocalDB)\v11.0</SqlExpressInstanceName>
+    <SqlExpressInstanceName>(LocalDB)\MSSQLLocalDB</SqlExpressInstanceName>
     <DefaultLanguage>en-US</DefaultLanguage>
+    <PendingProjectUpgrade>false</PendingProjectUpgrade>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug</OutputPath>
@@ -49,17 +50,17 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
   <ItemGroup>
-    <_BuildFile Include="$(LightSwitchSDKPath)\Design\vslshost.exe">
+    <_BuildFile Include="$(LightSwitchSDKPath)\Server\vslshost.exe">
       <SubFolder>
       </SubFolder>
       <PublishType>EntryPoint</PublishType>
     </_BuildFile>
-    <_BuildFile Include="$(LightSwitchSDKPath)\Design\vslshost.exe.config">
+    <_BuildFile Include="$(LightSwitchSDKPath)\Server\vslshost.exe.config">
       <SubFolder>
       </SubFolder>
       <PublishType>Desktop</PublishType>
     </_BuildFile>
-    <_BuildFile Include="$(LightSwitchSDKPath)\Design\vslshost.exe.manifest">
+    <_BuildFile Include="$(LightSwitchSDKPath)\Server\vslshost.exe.manifest">
       <SubFolder>
       </SubFolder>
       <PublishType>Exclude</PublishType>
@@ -133,5 +134,5 @@
       </PublishType>
     </_BuildFile>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.targets" />
 </Project>

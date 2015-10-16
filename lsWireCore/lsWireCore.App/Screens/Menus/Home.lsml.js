@@ -1,13 +1,16 @@
 /// <reference path="../GeneratedArtifacts/viewModel.js" />
 /// <reference path="../../lswires/lswires.js" />
 /// <reference path="../../scripts/jquery-1.9.1.js" />
+/// <reference path="../../scripts/msls-2.5.3.js" />
 
 myapp.Home.created = function (screen) {
 
 	screen.MenuId = "Home";
-
-	lsWire.initializeCore(screen, true);
-
+	if (screen.details && screen.details.startPage) {
+	    //screen.details.startPage.addChangeListener("_dependents", function () {
+	        lsWire.initializeCore(screen, true);
+	    //});
+	}
 	screen.canModify = lsWire.userHasPermission("SecurityAdministration");
 
 

@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{581633EB-B896-402F-8E60-36F3DA191C85}") = "lsWireCore", "lsWireCore\lsWireCore.lsxtproj", "{8008263D-3166-4A49-A2E2-99B9C2F08209}"
 EndProject

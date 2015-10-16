@@ -157,8 +157,10 @@ window.lsWire = window.lsWire || {};
                 lsWire.getAppConfig();
 
                 // If this was a direct link... but they got back home, remove the flag
-                if (lsWire.shell._homeScreen.id != screen.details._modelId) {
-                    myapp.directLinked = true;
+                if (lsWire.shell) {
+                    if (lsWire.shell._homeScreen.id != screen.details._modelId) {
+                        myapp.directLinked = true;
+                    }
                 }
             }
 
@@ -1191,10 +1193,8 @@ window.lsWire = window.lsWire || {};
                 if (msls.shell !== undefined) {
                     lsWire.shell = msls.shell;
                 } else {
-
                     // Shortcut to our dependents
-                    var dependents = screen.details.startPage._dependents;
-
+                        var dependents = screen.details.startPage._dependents;
                     // As look as we have dependents (no empty screen)
                     if (dependents !== undefined) {
 
